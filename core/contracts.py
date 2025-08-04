@@ -2,6 +2,10 @@ from web3 import Web3
 from utils.models import PositionInfoRaw
 from utils.models import Slot0Info
 import json
+import logging
+
+# Configurar logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Funcion que carga un contrato dado su ABI y ADDRESS
 def get_pool_contract(w3, address: str, abi_path: str):
@@ -9,10 +13,10 @@ def get_pool_contract(w3, address: str, abi_path: str):
         with open(abi_path) as f:
             abi = json.load(f)
     except FileNotFoundError:
-        print(f"ERROR: No se encontró el archivo ABI en {abi_path}")
+        logging.exception(f"ERROR: No se encontró el archivo ABI en {abi_path}: {FileNotFoundError}")
         return None
     except json.JSONDecodeError:
-        print(f"ERROR: Archivo ABI no es un JSON válido")
+        logging.exception(f"ERROR: Archivo ABI no es un JSON válido: {json.JSONDecodeError}")
         return None
     
     contract = w3.eth.contract(address=Web3.to_checksum_address(address), abi=abi)
@@ -20,7 +24,7 @@ def get_pool_contract(w3, address: str, abi_path: str):
 
 # Funcion para listar las funciones publicas del contrato
 def list_contract_functions(contract):
-    print("\nFunciones públicas del contrato de posicion:")
+    logging.info("\nFunciones públicas del contrato de posicion:")
     for func in contract.all_functions():
         print(f"- {func.fn_name}")
 
@@ -71,7 +75,7 @@ def get_slot0_data(pool_contract) -> Slot0Info:
             unlocked=slot0[5]
         )
     except Exception as e:
-        print(f"❌ Error al obtener slot0(): {e}")
+        logging.error(f'❌ Error al obtener slot0(): {e}')
         return None
 
 # Funciones para sacar el feeGrowthGlobal
@@ -82,7 +86,7 @@ def get_feeGrowthGlobal_0_X128(pool_contract):
         return feeGrowthGlobal_0_X128
     
     except Exception as e:
-        print(f"❌ Error al obtener feeGrowthGlobal0X128: {e}")
+        logging.error(f'❌ Error al obtener feeGrowthGlobal0X128: {e}')
         return None
     
 def get_feeGrowthGlobal_1_X128(pool_contract):
@@ -92,7 +96,7 @@ def get_feeGrowthGlobal_1_X128(pool_contract):
         return feeGrowthGlobal_1_X128
     
     except Exception as e:
-        print(f"❌ Error al obtener feeGrowthGlobal1X128: {e}")
+        logging.error(f"❌ Error al obtener feeGrowthGlobal1X128: {e}")
         return None
     
 def get_rewards(w3, pool_contract_gauge, wallet_address, nft_position_manager):

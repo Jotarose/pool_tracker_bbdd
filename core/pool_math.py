@@ -4,7 +4,11 @@ import requests
 from decimal import Decimal
 from utils.coingecko_token_ids import COINGECKO_IDS
 
-MAX_UINT128 = 2**128 - 1 # Lo uso para simular las fees que tengo que reclamar
+import logging
+
+# Configurar logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
 
 # Funcion para saber valor de liquidez real
 def get_amounts_from_liquidity(w3, pos, sqrt_price_x96,):
@@ -82,7 +86,7 @@ def get_token_price_USD(token_symbol: str) -> float:
 
 
     if token_symbol not in COINGECKO_IDS:
-        print(f"[Error] Símbolo '{token_symbol}' no está definido en el diccionario de IDs de Coingecko.")
+        logging.error(f"[Error] Símbolo '{token_symbol}' no está definido en el diccionario de IDs de Coingecko.")
         return None
     
     token_id = COINGECKO_IDS[token_symbol]
@@ -97,15 +101,15 @@ def get_token_price_USD(token_symbol: str) -> float:
         response = requests.get(url, params=params)
         response.raise_for_status()
         data = response.json()
-        price = data[token_id]["usd"]
+        price = data[token_id]['usd']
         _price_cache[token_symbol] = price  # Guarda en caché
         return price
 
     except requests.RequestException as e:
-        print(f"[Error] Error al consultar el precio de {token_symbol}: {e}")
+        logging.error(f"[Error] Error al consultar el precio de {token_symbol}: {e}")
         return None
     except KeyError:
-        print(f"[Error] Respuesta inválida de Coingecko para {token_symbol}")
+        logging.error(f"[Error] Respuesta inválida de Coingecko para {token_symbol}: {KeyError}")
         return None
     
 
@@ -155,19 +159,19 @@ def calculate_pnl(token0_initial_amount, token1_initial_amount, initial_liquidit
     }
 
 # Leer las fees stakeades en el gauge contract por token
-def input_staked_fees(_token0_info, _token1_info):
+# def input_staked_fees(_token0_info, _token1_info):
 
-    token0_info = _token0_info
-    token1_info = _token1_info
+#     token0_info = _token0_info
+#     token1_info = _token1_info
     
-    while True:
-        try:
-            fees_token0 = float(input(f"\nIntroduce las fees que tienes de {token0_info["symbol"]}: "))
-            fees_token1 = float(input(f"Introduce las fees que tienes de {token1_info["symbol"]}: "))
-            if fees_token0 < 0 or fees_token1 < 0:
-                print("Por favor, introduce números positivos.")
-                continue
-            return fees_token0, fees_token1
-        except ValueError:
-            print("Entrada inválida. Por favor, introduce un número válido.")
+#     while True:
+#         try:
+#             fees_token0 = float(input(f"\nIntroduce las fees que tienes de {token0_info['symbol']}: "))
+#             fees_token1 = float(input(f"Introduce las fees que tienes de {token1_info['symbol']}: "))
+#             if fees_token0 < 0 or fees_token1 < 0:
+#                 print("Por favor, introduce números positivos.")
+#                 continue
+#             return fees_token0, fees_token1
+#         except ValueError:
+#             print("Entrada inválida. Por favor, introduce un número válido.")
     

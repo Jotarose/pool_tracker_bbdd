@@ -13,17 +13,17 @@ def load_pool_configs(filepath="config/pools_config.json"):
     flat_configs = []
     for wallet in data:
 
-        wallet_address = wallet["wallet_address"]
+        wallet_address = wallet['wallet_address']
 
-        for position in wallet["positions"]:
+        for position in wallet['positions']:
             flat_configs.append({
                 "wallet_address": wallet_address,
-                "nft_position_manager": position["nft_position_manager"],
-                "pool_contract": position["pool_contract"],
-                "amm_contract": position["amm_contract"],
-                "gauge_contract": position["gauge_contract"],
-                "initial_position": position["initial_position"],
-                "staked_fees": position["staked_fees"]
+                "nft_position_manager": position['nft_position_manager'],
+                "pool_contract": position['pool_contract'],
+                "amm_contract": position['amm_contract'],
+                "gauge_contract": position['gauge_contract'],
+                "initial_position": position['initial_position'],
+                "staked_fees": position['staked_fees']
             })
 
     return flat_configs
@@ -33,14 +33,14 @@ def load_pool_configs(filepath="config/pools_config.json"):
 def get_full_position_info(w3, config) -> MyPositionInfo:
 
     # CARGO CONFIGURACION DE UN POOL
-    wallet_address = config["wallet_address"]
-    nft_position_manager = config["nft_position_manager"]
+    wallet_address = config['wallet_address']
+    nft_position_manager = config['nft_position_manager']
 
     # Contratos
-    pool_contract_position = contracts.get_pool_contract(w3, config["pool_contract"]["address"], config["pool_contract"]["abi_path"])
+    pool_contract_position = contracts.get_pool_contract(w3, config['pool_contract']['address'], config['pool_contract']['abi_path'])
     # list_contract_functions(pool_contract_position)
-    pool_contract_amm = contracts.get_pool_contract(w3, config["amm_contract"]["address"], config["amm_contract"]["abi_path"])
-    pool_contract_gauge = contracts.get_pool_contract(w3, config["gauge_contract"]["address"], config["gauge_contract"]["abi_path"])
+    pool_contract_amm = contracts.get_pool_contract(w3, config['amm_contract']['address'], config['amm_contract']['abi_path'])
+    pool_contract_gauge = contracts.get_pool_contract(w3, config['gauge_contract']['address'], config['gauge_contract']['abi_path'])
     
     # Datos en crudo de la posicion
     position_raw = contracts.get_position_info_raw(pool_contract_position, nft_position_manager)
@@ -52,18 +52,18 @@ def get_full_position_info(w3, config) -> MyPositionInfo:
 
     # Logica de calculo separada
     liquidity_per_token = pool_math.get_amounts_from_liquidity(w3, position_raw, sqrt_price_x96)  # Calcular cantidades de cada token según liquidez y rango
-    actual_price_token0 = pool_math.get_token_price_USD(token0_info["symbol"])
-    actual_price_token1 = pool_math.get_token_price_USD(token1_info["symbol"])
-    price_tick_lower = pool_math.tick_to_price(position_raw.tick_lower, token0_info["decimals"], token1_info["decimals"])
-    price_tick_upper = pool_math.tick_to_price(position_raw.tick_upper, token0_info["decimals"], token1_info["decimals"])
-    price_tick_pool = pool_math.tick_to_price(slot0_data.tick, token0_info["decimals"], token1_info["decimals"])
+    actual_price_token0 = pool_math.get_token_price_USD(token0_info['symbol'])
+    actual_price_token1 = pool_math.get_token_price_USD(token1_info['symbol'])
+    price_tick_lower = pool_math.tick_to_price(position_raw.tick_lower, token0_info['decimals'], token1_info['decimals'])
+    price_tick_upper = pool_math.tick_to_price(position_raw.tick_upper, token0_info['decimals'], token1_info['decimals'])
+    price_tick_pool = pool_math.tick_to_price(slot0_data.tick, token0_info['decimals'], token1_info['decimals'])
     range_print, range_bool = pool_math.is_in_range(price_tick_lower, price_tick_upper, price_tick_pool)
 
 
     # Asigno automaticamente las staked_fees desde el json para automatizar.
     #staked_fees_token0, staked_fees_token1 = pool_math.input_staked_fees(token0_info, token1_info)
-    staked_fees_token0 = config["staked_fees"]["token0"]
-    staked_fees_token1 = config["staked_fees"]["token1"]
+    staked_fees_token0 = config['staked_fees']['token0']
+    staked_fees_token1 = config['staked_fees']['token1']
 
     # Obtengo las REWARDS en AERO no reclamadas que me da el pool
     non_claimed_rewards = float(contracts.get_rewards(w3, pool_contract_gauge, wallet_address, nft_position_manager))
@@ -74,14 +74,14 @@ def get_full_position_info(w3, config) -> MyPositionInfo:
     all_rewards_to_usd = all_rewards * aero_price_in_usd
 
     # Obtengo la posicion inicial
-    initial_pos = config["initial_position"]
-    mint_date_dt = datetime.fromisoformat(initial_pos["mint_date"].replace("Z", "+00:00"))
+    initial_pos = config['initial_position']
+    mint_date_dt = datetime.fromisoformat(initial_pos['mint_date'].replace('Z', '+00:00'))
     now = datetime.now(timezone.utc)
     time_in_pool = now - mint_date_dt
    
     
-    token0_initial_position = initial_pos["token0"]
-    token1_initial_position = initial_pos["token1"]
+    token0_initial_position = initial_pos['token0']
+    token1_initial_position = initial_pos['token1']
     initial_liquidity_USD = token0_initial_position * initial_pos["price_token0_USD"] + token1_initial_position * initial_pos["price_token1_USD"]
 
     # Calculo el PnL personalizado con las rewards -> es un diccionario
@@ -106,12 +106,12 @@ def get_full_position_info(w3, config) -> MyPositionInfo:
 
         token0_address=position_raw.token0,
         token1_address=position_raw.token1,
-        token0_name=token0_info["name"],
-        token1_name=token1_info["name"],
-        token0_symbol=token0_info["symbol"],
-        token1_symbol=token1_info["symbol"],
-        token0_decimals=token0_info["decimals"],
-        token1_decimals=token1_info["decimals"],
+        token0_name=token0_info['name'],
+        token1_name=token1_info['name'],
+        token0_symbol=token0_info['symbol'],
+        token1_symbol=token1_info['symbol'],
+        token0_decimals=token0_info['decimals'],
+        token1_decimals=token1_info['decimals'],
         actual_price_token0 = actual_price_token0,
         actual_price_token1 = actual_price_token1,
 

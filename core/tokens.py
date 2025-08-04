@@ -1,4 +1,9 @@
 from web3 import Web3
+import logging
+
+# Configurar logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
 
 # Sacar nombre, simbolo y decimales del token
 def get_token_info(w3, token_address):
@@ -35,5 +40,5 @@ def get_token_info(w3, token_address):
         return {"name": name, "symbol": symbol, "decimals": decimals}
 
     except Exception as e:
-        print(f"❌ Error al obtener información del token {token_address}: {e}")
+        logging.error(f"❌ Error al obtener información del token {token_address}: {e}")
         return {"name": "N/A", "symbol": "N/A"}
