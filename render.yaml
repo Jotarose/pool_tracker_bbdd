@@ -1,0 +1,10 @@
+services:
+  - type: cron
+    name: position-tracker-cron
+    runtime: python
+    schedule: "*/15 * * * *"  # cada 15 minutos
+    buildCommand: ""
+    startCommand: "python main.py"
+    envVars:
+      - key: RPC_URL
+        value: "https://base-rpc.publicnode.com/"

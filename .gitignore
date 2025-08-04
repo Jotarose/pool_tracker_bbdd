@@ -1,0 +1,15 @@
+# .gitignore
+
+# Entorno virtual
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# BBDD local (opcional)
+positions.db
+
+# Archivos de entorno
+.env
