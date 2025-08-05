@@ -3,6 +3,11 @@ from datetime import datetime
 from .database import SessionLocal
 from .models import PositionSnapshot
 from datetime import datetime, timezone
+import logging
+
+# Configurar logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def save_snapshot(position):
     session = SessionLocal()
@@ -25,7 +30,7 @@ def save_snapshot(position):
         session.add(snapshot)
         session.commit()
     except Exception as e:
-        print("❌ Error al guardar snapshot:", e)
+        logger.error("❌ Error al guardar snapshot:", e)
         session.rollback()
     finally:
         session.close()

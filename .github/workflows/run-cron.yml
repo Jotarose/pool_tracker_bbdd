@@ -2,7 +2,7 @@ name: Run Position Tracker Every 15 Minutes
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # Cada 15 minutos
+    - cron: "*/30 * * * *"  # Cada 30 minutos
   workflow_dispatch:       # Permite ejecutarlo manualmente desde GitHub
 
 jobs:
@@ -26,4 +26,5 @@ jobs:
       - name: Ejecuta main.py
         env:
           RPC_URL: ${{ secrets.RPC_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: python main.py

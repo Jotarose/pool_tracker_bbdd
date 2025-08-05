@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from db.query_positions import get_snapshots_by_position
 from core import positions
+from zoneinfo import ZoneInfo
 
 def plot_roi_over_time(wallet, nft_positions):
 
@@ -18,8 +19,9 @@ def plot_roi_over_time(wallet, nft_positions):
             continue
 
         timestamps = [s.timestamp for s in snapshots]
+        madrid_timestamps = timestamps.astimezone(ZoneInfo("Europe/Madrid"))
         rois = [s.roi for s in snapshots]
-        plt.plot(timestamps, rois, marker='o', label=f'NFT {nft}')
+        plt.plot(madrid_timestamps, rois, marker='o', label=f'NFT {nft}')
 
     if not plt.gca().has_data():
         print("❌ No hay datos para mostrar.")
@@ -50,8 +52,10 @@ def plot_pnl_over_time(wallet, nft_positions):
             continue
 
         timestamps = [s.timestamp for s in snapshots]
+        madrid_timestamps = timestamps.astimezone(ZoneInfo("Europe/Madrid"))
+        
         pnls = [s.pnl_percent for s in snapshots]
-        plt.plot(timestamps, pnls, marker='o', label=f'NFT {nft}')
+        plt.plot(madrid_timestamps, pnls, marker='o', label=f'NFT {nft}')
 
     if not plt.gca().has_data():
         print("❌ No hay datos para mostrar.")
