@@ -1,4 +1,4 @@
-name: Run Position Tracker Every 15 Minutes
+name: Run Position Tracker Every 30 Minutes
 
 on:
   schedule:
