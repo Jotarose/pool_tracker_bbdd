@@ -26,8 +26,8 @@
           "mint_date": "2025-07-18T20:28:11Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":0.09769,
+          "token1":0.00307
         }
       },
       {
@@ -54,8 +54,8 @@
           "mint_date": "2025-07-26T19:16:11Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":15.31,
+          "token1":37.8
         }
       },
       {
@@ -82,8 +82,8 @@
           "mint_date": "2025-06-17T21:25:05Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":181.83,
+          "token1":220.94
         }
       }
     ]
@@ -115,8 +115,8 @@
           "mint_date": "2025-07-18T21:44:51Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":0.15472,
+          "token1":0.00488
         }
       },
       {
@@ -143,8 +143,8 @@
           "mint_date": "2025-07-25T20:11:35Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":0.03637,
+          "token1":0.00114
         }
       },
       {
@@ -171,8 +171,8 @@
           "mint_date": "2025-07-29T15:54:05Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":1.1236,
+          "token1":1.3668
         }
       },
       {
@@ -199,8 +199,8 @@
           "mint_date": "2025-07-18T19:59:23Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":52.35,
+          "token1":65.08
         }
       }
     ]
@@ -232,8 +232,8 @@
           "mint_date": "2025-07-19T18:45:21Z"
         },
         "staked_fees":{
-          "token0":0,
-          "token1":0
+          "token0":0.09084,
+          "token1":0.00287
         }
       }
     ]
