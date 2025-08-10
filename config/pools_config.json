@@ -3,7 +3,7 @@
     "wallet_address": "0x7A07597b2E6BD76f8b06777A75462942A6DE13b3",
     "positions": [
         {
-        "nft_position_manager": 19834820,
+        "nft_position_manager": 21783940,
         "pool_contract": {
           "address": "0x827922686190790b37229fd06084350E74485b72",
           "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
@@ -15,23 +15,23 @@
         "gauge_contract": {
           "address": "0x41b2126661C673C2beDd208cC72E85DC51a5320a",
           "abi_path": "utils/abi/weth_cbbtc_pool_GAUGE_ABI.json",
-          "claimed_rewards":233.68,
+          "claimed_rewards": 0.0,
           "claimed_fees": 0.0
         },
         "initial_position": {
-          "token0": 3.67,
-          "token1": 0.11069405,
-          "price_token0_USD": 3583.62,
-          "price_token1_USD": 117500,
-          "mint_date": "2025-07-18T20:28:11Z"
+          "token0": 2.90783,
+          "token1": 0.12038,
+          "price_token0_USD": 4024,
+          "price_token1_USD": 116551,
+          "mint_date": "2025-08-08T20:28:11Z"
         },
         "staked_fees":{
-          "token0":0.09769,
-          "token1":0.00307
+          "token0":0.00653,
+          "token1":0.00024
         }
       },
       {
-        "nft_position_manager": 20662318,
+        "nft_position_manager": 21881532,
         "pool_contract": {
           "address": "0x827922686190790b37229fd06084350E74485b72",
           "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
@@ -47,52 +47,23 @@
           "claimed_fees": 0.0
         },
         "initial_position": {
-          "token0": 2000,
-          "token1": 4684.06088,
+          "token0": 5135.08,
+          "token1": 3517.55,
           "price_token0_USD": 1.0,
-          "price_token1_USD": 0.88,
-          "mint_date": "2025-07-26T19:16:11Z"
+          "price_token1_USD": 1.1617830,
+          "mint_date": "2025-08-09T19:16:11Z"
         },
         "staked_fees":{
-          "token0":15.31,
-          "token1":37.8
-        }
-      },
-      {
-        "nft_position_manager": 16773007,
-        "pool_contract": {
-          "address": "0x827922686190790b37229fd06084350E74485b72",
-          "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
-        },
-        "amm_contract": {
-          "address": "0xBE00fF35AF70E8415D0eB605a286D8A45466A4c1",
-          "abi_path": "utils/abi/usdc_aero_pool_AMM_ABI.json"
-        },
-        "gauge_contract": {
-          "address": "0x430C09546ae9249AB75B9A4ef7B5FD9a4006D6f3",
-          "abi_path": "utils/abi/usdc_aero_pool_GAUGE_ABI.json",
-          "claimed_rewards":19.7223573,
-          "claimed_fees": 0.0
-        },
-        "initial_position": {
-          "token0": 400,
-          "token1": 2089.232867626671001111,
-          "price_token0_USD": 1.0,
-          "price_token1_USD": 0.75,
-          "mint_date": "2025-06-17T21:25:05Z"
-        },
-        "staked_fees":{
-          "token0":181.83,
-          "token1":220.94
+          "token0":30.69,
+          "token1":21.54
         }
       }
-    ]
   },
   {
     "wallet_address": "0xbc3dE27F90446EB757E5bF60b22F61C9fb7B70F2",
     "positions": [
       {
-        "nft_position_manager": 19839782,
+        "nft_position_manager": 21789404,
         "pool_contract": {
           "address": "0x827922686190790b37229fd06084350E74485b72",
           "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
@@ -104,47 +75,19 @@
         "gauge_contract": {
           "address": "0x41b2126661C673C2beDd208cC72E85DC51a5320a",
           "abi_path": "utils/abi/weth_cbbtc_pool_GAUGE_ABI.json",
-          "claimed_rewards":346.46,
-          "claimed_fees": 0.0
-        },
-        "initial_position": {
-          "token0": 5.28000,
-          "token1": 0.17024154,
-          "price_token0_USD": 3583.00,
-          "price_token1_USD": 117500,
-          "mint_date": "2025-07-18T21:44:51Z"
-        },
-        "staked_fees":{
-          "token0":0.15472,
-          "token1":0.00488
-        }
-      },
-      {
-        "nft_position_manager": 20578611,
-        "pool_contract": {
-          "address": "0x827922686190790b37229fd06084350E74485b72",
-          "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
-        },
-         "amm_contract": {
-          "address": "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
-          "abi_path": "utils/abi/weth_cbbtc_pool_AMM_ABI.json"
-        },
-        "gauge_contract": {
-          "address": "0x41b2126661C673C2beDd208cC72E85DC51a5320a",
-          "abi_path": "utils/abi/weth_cbbtc_pool_GAUGE_ABI.json",
           "claimed_rewards":0.0,
           "claimed_fees": 0.0
         },
         "initial_position": {
-          "token0": 2.46580450,
-          "token1": 0.07631923,
-          "price_token0_USD": 3665.6312,
-          "price_token1_USD": 116793.36911,
-          "mint_date": "2025-07-25T20:11:35Z"
+          "token0": 6.1,
+          "token1": 0.2550,
+          "price_token0_USD": 4050.49,
+          "price_token1_USD": 116458,
+          "mint_date": "2025-08-08T21:44:51Z"
         },
         "staked_fees":{
-          "token0":0.03637,
-          "token1":0.00114
+          "token0":0.01329,
+          "token1":0.00049
         }
       },
       {
@@ -171,12 +114,12 @@
           "mint_date": "2025-07-29T15:54:05Z"
         },
         "staked_fees":{
-          "token0":1.1236,
-          "token1":1.3668
+          "token0":1.583,
+          "token1":1.952
         }
       },
       {
-        "nft_position_manager": 19832854,
+        "nft_position_manager": 21880004,
         "pool_contract": {
           "address": "0x827922686190790b37229fd06084350E74485b72",
           "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
@@ -188,19 +131,19 @@
         "gauge_contract": {
           "address": "0x430C09546ae9249AB75B9A4ef7B5FD9a4006D6f3",
           "abi_path": "utils/abi/usdc_aero_pool_GAUGE_ABI.json",
-          "claimed_rewards":81.08,
+          "claimed_rewards":0.0,
           "claimed_fees": 0.0
         },
         "initial_position": {
-          "token0": 790.00,
-          "token1": 1609.126217,
+          "token0": 2000.00,
+          "token1": 1370.79,
           "price_token0_USD": 1.0,
-          "price_token1_USD": 0.9114761,
-          "mint_date": "2025-07-18T19:59:23Z"
+          "price_token1_USD": 1.16829,
+          "mint_date": "2025-08-09T19:59:23Z"
         },
         "staked_fees":{
-          "token0":52.35,
-          "token1":65.08
+          "token0":12.45,
+          "token1":8.391
         }
       }
     ]
@@ -209,7 +152,7 @@
     "wallet_address": "0x2Bf9E34fefEB411eaAb910Dd2411f9949d656668",
     "positions": [
       {
-        "nft_position_manager": 19922303,
+        "nft_position_manager": 21781601,
         "pool_contract": {
           "address": "0x827922686190790b37229fd06084350E74485b72",
           "abi_path": "utils/abi/nfpm_aero_pool_POSITION_ABI.json"
@@ -221,19 +164,19 @@
         "gauge_contract": {
           "address": "0x41b2126661C673C2beDd208cC72E85DC51a5320a",
           "abi_path": "utils/abi/weth_cbbtc_pool_GAUGE_ABI.json",
-          "claimed_rewards":346.46,
+          "claimed_rewards":0.0,
           "claimed_fees": 0.0
         },
         "initial_position": {
-          "token0": 3.28460369,
-          "token1": 0.10339722,
-          "price_token0_USD": 3554.87,
-          "price_token1_USD": 118030,
-          "mint_date": "2025-07-19T18:45:21Z"
+          "token0": 3.30857,
+          "token1": 0.14974,
+          "price_token0_USD": 4024,
+          "price_token1_USD": 116551,
+          "mint_date": "2025-08-08T18:45:21Z"
         },
         "staked_fees":{
-          "token0":0.09084,
-          "token1":0.00287
+          "token0":0.01277,
+          "token1":0.0005
         }
       }
     ]
