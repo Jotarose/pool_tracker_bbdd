@@ -8,7 +8,7 @@ Este proyecto permite monitorizar y analizar posiciones de liquidez en pools DeF
 - Obtención y análisis de posiciones NFT en pools.
 - Cálculo de métricas financieras (PnL, ROI, impermanent loss, etc.).
 - Almacenamiento de snapshots históricos en base de datos.
-- Visualización y análisis de posiciones.
+- Visualización y análisis de posiciones mediante graficos generados con mathplotlib.
 - Automatización mediante GitHub Actions.
 
 ## Estructura del Proyecto
@@ -62,8 +62,3 @@ Haz push a la rama (git push origin feature/nueva-funcionalidad).
 Abre un Pull Request.
 Licencia
 MIT
-
-Notas:
-
-No compartas tu archivo .env ni claves privadas.
-Si tienes dudas, revisa los comentarios en el código o abre un issue.
