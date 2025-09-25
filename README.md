@@ -41,15 +41,12 @@ pip install -r requirements.txt
 4. **Configura las variables de entorno**
 - Crea un archivo .env con tus claves
 - Tambien configura los pools en /config/pools_config.json
-RPC_URL=tu_rpc_url
-DATABASE_URL=sqlite:///positions.db
+- RPC_URL=tu_rpc_url
+- DATABASE_URL=sqlite:///positions.db
 
-Uso
-Ejecutar el seguimiento y guardado de posiciones:
-python [main.py](http://_vscodecontentref_/4)
-
-Visualizar posiciones y análisis:
-python [run_plot.py](http://_vscodecontentref_/5)
+Uso:
+- Ejecutar el seguimiento y guardado de posiciones: python [main.py](http://_vscodecontentref_/4)
+- Visualizar posiciones y análisis: python [run_plot.py](http://_vscodecontentref_/5)
 
 Automatización
 El proyecto incluye un workflow de GitHub Actions para ejecutar el seguimiento cada 6 horas automáticamente. Consulta .github/workflows/run-cron.yml.
