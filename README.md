@@ -12,7 +12,7 @@ Este proyecto permite monitorizar y analizar posiciones de liquidez en pools DeF
 - Automatización mediante GitHub Actions.
 
 ## Estructura del Proyecto
- ├── main.py # Script principal: conecta, analiza y guarda posiciones 
+```` ├── main.py # Script principal: conecta, analiza y guarda posiciones 
  ├── run_plot.py # Script para visualizar posiciones 
  ├── core/ # Lógica principal: contratos, posiciones, matemáticas de pools 
  ├── db/ # Modelos y utilidades de base de datos 
@@ -22,7 +22,7 @@ Este proyecto permite monitorizar y analizar posiciones de liquidez en pools DeF
  ├── requirements.txt # Dependencias del proyecto 
  ├── .env # Variables de entorno (no subir a git) 
  └── README.md
-
+````
  
 ## Instalación
 
